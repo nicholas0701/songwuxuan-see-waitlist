@@ -8,7 +8,8 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: '仅支持 POST' });
 
-  const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || '').split(',')[0].trim();
+  // 取 IP：Vercel 必带 x-forwarded-for；此处做防御性回退，避免极端情况下取不到 connection 导致 500
+  const ip = (req.headers['x-forwarded-for'] || (req.connection || req.socket || {}).remoteAddress || '').split(',')[0].trim();
   let body;
   try { body = typeof req.body === 'object' && req.body !== null ? req.body : JSON.parse(req.body || '{}'); }
   catch (_) { return res.status(400).json({ message: '数据格式错误。' }); }
