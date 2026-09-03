@@ -14,6 +14,12 @@ module.exports = async (req, res) => {
   try { body = typeof req.body === 'object' && req.body !== null ? req.body : JSON.parse(req.body || '{}'); }
   catch (_) { return res.status(400).json({ message: '数据格式错误。' }); }
 
-  const { status, body: out } = await handleSignup(body, ip);
+  const { status, body: out, delivered, reason } = await handleSignup(body, ip);
+
+  // 只有"真实登记却没送达飞书"才告警；400/429/蜜罐属正常业务分支，不告警
+  if (status === 200 && !delivered && reason && reason !== 'honeypot') {
+    console.error('[ALERT] 登记已落盘但未送达飞书，请检查 FEISHU_WEBHOOK 配置。reason=' + reason);
+  }
+
   return res.status(status).json(out);
 };

@@ -3,6 +3,7 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "functions": {
-    "api/signup.js": { "memory": 128, "maxDuration": 10 }
+    "api/signup.js": { "memory": 128, "maxDuration": 10 },
+    "api/export.js": { "memory": 128, "maxDuration": 10 }
   }
 }
