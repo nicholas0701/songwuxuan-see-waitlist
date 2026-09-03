@@ -4,6 +4,7 @@
   "outputDirectory": ".",
   "functions": {
     "api/signup.js": { "memory": 128, "maxDuration": 10 },
-    "api/export.js": { "memory": 128, "maxDuration": 10 }
+    "api/export.js": { "memory": 128, "maxDuration": 10 },
+    "api/diagnose.js": { "memory": 128, "maxDuration": 10 }
   }
 }
