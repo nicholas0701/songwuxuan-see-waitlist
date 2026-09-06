@@ -1,0 +1,7 @@
+{
+  "name": "signup",
+  "version": "1.0.0",
+  "description": "松悟轩·see 预售登记接收（CloudBase HTTP 触发）",
+  "main": "index.js",
+  "dependencies": {}
+}

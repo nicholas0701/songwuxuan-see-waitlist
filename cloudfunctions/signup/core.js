@@ -1,3 +1,6 @@
+/* eslint-disable */
+// ⚠️ 本文件由 tools/sync-cloudbase.js 自动生成，请勿手工修改。
+// 唯一真相源：api/_core.js。改逻辑请改那里，然后运行：node tools/sync-cloudbase.js
 // 共享核心逻辑：校验 + 落盘 + 飞书推送（主通道）+ 日志兜底
 const fs = require('fs');
 const path = require('path');

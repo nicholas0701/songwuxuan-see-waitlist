@@ -1,0 +1,7 @@
+{
+  "name": "export",
+  "version": "1.0.0",
+  "description": "松悟轩·see 登记名单导出（CloudBase HTTP 触发，需 ADMIN_TOKEN）",
+  "main": "index.js",
+  "dependencies": {}
+}
